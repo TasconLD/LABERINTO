@@ -1,5 +1,5 @@
 /*  Proyecto: Agentes Inteligentes en un Laberinto
-    Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
+    Curso: Fundamentos de ProgramaciÃ³n Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
                  Elbert Leandro Moreno Castillo -
@@ -36,7 +36,7 @@ Tablero::~Tablero() {
 void Tablero::generarLaberintoAleatorio() {
     for(int i = 0; i < TAMANIO; i++) {
         for(int j = 0; j < TAMANIO; j++) {
-            // Generar número aleatorio entre 0 y 1
+            // Generar nÃºmero aleatorio entre 0 y 1
             // 70% probabilidad de encontrar un camino (1), y un 30% un precipicio (0)
             matriz[i][j] = (rand() % 100 < 70) ? 1 : 0;
         }
@@ -51,7 +51,7 @@ void Tablero::generarLaberintoAleatorio() {
     matriz[9][8] = 1;  // Izquierda de la salida
 
     // Crear un camino desde una esquina hacia la salida
-    // Camino horizontal en la última fila
+    // Camino horizontal en la Ãºltima fila
     for(int j = 7; j <= 9; j++) {
         matriz[9][j] = 1;
     }
@@ -85,7 +85,7 @@ int Tablero::obtenerValor(int fila, int columna) const {
         return matriz[fila][columna];
     }
     return -1;
-
+}
 
 void Tablero::establecerValor(int fila, int columna, int valor) {
     if(fila >= 0 && fila < TAMANIO && columna >= 0 && columna < TAMANIO) {
@@ -103,7 +103,7 @@ void Tablero::obtenerPosicionInicialAleatoria(int& fila, int& columna) {
     do {
         fila = rand() % TAMANIO;
         columna = rand() % TAMANIO;
-    } while(!esPosicionValida(fila, columna)); // Repetir hasta encontrar una posición que sea válida
+    } while(!esPosicionValida(fila, columna)); // Repetir hasta encontrar una posiciÃ³n que sea vÃ¡lida
 }
 
 
