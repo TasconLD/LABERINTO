@@ -1,5 +1,5 @@
 /*  Proyecto: Agentes Inteligentes en un Laberinto
-    Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
+    Curso: Fundamentos de ProgramaciÃ³n Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
                  Elbert Leandro Moreno Castillo -
@@ -15,7 +15,7 @@ using namespace std;
 
 
 class Avatar {
-private:
+public:
     int filaActual;
     int columnaActual;
     int movimientos;
@@ -25,12 +25,12 @@ private:
     // Destructor
     ~Avatar();
 
-    // Métodos para obtener la posición actual
+    // MÃ©todos para obtener la posiciÃ³n actual
     int obtenerFila() const;
     int obtenerColumna() const;
     int obtenerMovimientos() const;
 
-    // Métodos para establecer nueva posición
+    // MÃ©todos para establecer nueva posiciÃ³n
     void establecerPosicion(int nuevaFila, int nuevaColumna);
 
     /
