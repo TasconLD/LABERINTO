@@ -33,7 +33,7 @@ public:
     // Métodos para establecer nueva posición
     void establecerPosicion(int nuevaFila, int nuevaColumna);
 
-    /
+    
     void incrementarMovimientos();
 
 
