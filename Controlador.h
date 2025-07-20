@@ -16,25 +16,25 @@
 #include "Vista.h"
 
 using namespace std;
-
+//Esta clase dirige el juego y se encarga de unir modelo y avatar con vista
 class Controlador {
 private:
-    // Composición: el controlador contiene estos objetos
+    // declaracion de punteros, tablero, personaje y la interfaz, tambien permite polimorfismo (se inicializan en .cpp)
     Tablero* const tablero;    // Puntero const al tablero del juego
     Avatar* const avatar;      // Puntero const al avatar del juego
     Vista* const vista;        // Puntero const a la vista del juego
-
+//metodos publicos, constructor y destructor 
 public:
     Controlador();
     ~Controlador();
-
-    void ejecutarJuego();
-    void inicializarJuego();
-    void procesarMovimiento();
-    void verificarEstadoJuego();
-    void finalizarJuego();
-    bool intentarMovimiento();
-    void mostrarProgreso();
+//metodos funcionales
+    void ejecutarJuego();    //ciclo principal del juefo
+    void inicializarJuego();    //muestra mensaje inicial
+    void procesarMovimiento();    //intenta mover el persojae
+    void verificarEstadoJuego();    //verifica si ya llegó a la meta
+    void finalizarJuego();        //muestra el mensaje final
+    bool intentarMovimiento();    //prueba si el movimiento es valido
+    void mostrarProgreso();    //muestra el tablero y el estado actual
 };
 
 #endif
