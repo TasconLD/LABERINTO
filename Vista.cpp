@@ -1,9 +1,9 @@
 /*  Proyecto: Agentes Inteligentes en un Laberinto
-    Curso: Fundamentos de Programaci�n Orientada a Objetos (FPOO)
+    Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
                  Elbert Leandro Moreno Castillo -
-                 Daniel Escobar Escobar -
+                 Daniel Escobar Escobar - 2437924
                  Jesus Giovanny Mora -
     Fecha: Mayo 2025 */
 
@@ -16,7 +16,10 @@ using namespace std;
 Vista::Vista(Tablero* const ptrTablero, Avatar* const ptrAvatar, bool detallado)
     : tablero(ptrTablero), avatar(ptrAvatar), modoDetallado(detallado) {}
 
-Vista::~Vista() {}
+Vista::Vista(Tablero* const ptrTablero, Avatar* const ptrAvatar)
+    : tablero(ptrTablero), avatar(ptrAvatar) {
+    // Inicialización en lista de inicialización para punteros const
+}
 
 void Vista::mostrarInicio() const {
     cout << "===============================" << endl;
@@ -41,19 +44,23 @@ void Vista::mostrarTablero() const {
     cout << "Leyenda: 😃=Avatar, 🚪=Salida, ⬜=Camino, ⬛=Precipicio" << endl;
     cout << "   ";
 
+    // Mostrar números de columna superior
     for(int j = 0; j < tablero->obtenerTamanio(); j++) {
         cout << " " << j << " ";
     }
     cout << endl;
 
     for(int i = 0; i < tablero->obtenerTamanio(); i++) {
-        cout << i << "  ";
+        cout << i << "  "; // Número de fila
+
         for(int j = 0; j < tablero->obtenerTamanio(); j++) {
-            if (avatar->obtenerFila() == i && avatar->obtenerColumna() == j) {
-                cout << "😃";
+            // Verificar si el avatar está en esta posición
+            if(avatar->obtenerFila() == i && avatar->obtenerColumna() == j) {
+                cout << "[A]"; // Mostrar avatar
             }
-            else if (tablero->esLaSalida(i, j)) {
-                cout << "🚪";
+            // Verificar si es la posición de salida
+            else if(i == 9 && j == 9) {
+                cout << "[S]";
             }
             else if (tablero->obtenerValor(i, j) == 1) {
                 cout << "⬜";
@@ -65,6 +72,7 @@ void Vista::mostrarTablero() const {
         cout << "  " << i << endl;
     }
 
+    // Mostrar números de columna en la parte inferior
     cout << "   ";
     for(int j = 0; j < tablero->obtenerTamanio(); j++) {
         cout << " " << j << " ";
@@ -73,12 +81,14 @@ void Vista::mostrarTablero() const {
 }
 
 void Vista::mostrarMensajeVictoria() const {
-    cout << "\n=================================" << endl;
-    cout << "    ¡¡ FELICIDADES !!" << endl;
-    cout << "    Has llegado a la salida" << endl;
-    cout << "    Movimientos: " << avatar->obtenerMovimientos() << endl;
-    cout << "=================================" << endl;
+    cout << "\n************************************************" << endl;
+    cout << "           ¡¡¡ MISION COMPLETADA !!!" << endl;
+    cout << "************************************************" << endl;
+    cout << "El soldado ha encontrado la salida del laberinto!" << endl;
+    cout << "Movimientos totales: " << avatar->obtenerMovimientos() << endl;
+    cout << "************************************************" << endl;
 }
+
 void Vista::mostrarEstadoCompleto() const {
     limpiarPantalla();
     mostrarTablero();

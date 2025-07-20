@@ -1,9 +1,10 @@
 /*  Proyecto: Agentes Inteligentes en un Laberinto
-    Curso: Fundamentos de Programaci�n Orientada a Objetos (FPOO)
+
+    Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
                  Elbert Leandro Moreno Castillo -
-                 Daniel Escobar Escobar -
+                 Daniel Escobar Escobar - 2437924
                  Jesus Giovanny Mora -
     Fecha: Mayo 2025 */
 
