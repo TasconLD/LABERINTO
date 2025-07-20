@@ -8,29 +8,28 @@
                  Jesus Giovanny Mora -
     Fecha: Mayo 2025 */
 
-
+//encabezado y dependencias 
 #include "Controlador.h"
 #include "AvatarInteligente.h"
-
 #include <iostream>
 
 using namespace std;
-
+//constructor, crea el tablero, inicializa el avatar y vista, y pone el juego como no terminado
 Controlador::Controlador() :
     tablero(new Tablero()),
     avatar(nullptr),
     vista(nullptr),
     juegoTerminado(false) {
-
+    //este fragmento es el de la posición inicial aleatoria del avatar donde evita que haga respawn en un precipicio 
     int filaInicial, columnaInicial;
     do {
         tablero->obtenerPosicionInicialAleatoria(filaInicial, columnaInicial);
     } while (tablero->obtenerValor(filaInicial, columnaInicial) == 0); // Evita precipicio
-
+    //crea el avatar usando la clase AvatarInteligente que hereda de Avatar, y se crea la vista pasandole el tableto y el avatar 
     avatar = new AvatarInteligente(filaInicial, columnaInicial);
     vista = new Vista(tablero, avatar);
 }
-
+//metodo destructor que libera memoria que fue reservada con new en el constructor
 Controlador::~Controlador() {
     delete tablero;
     delete avatar;
