@@ -1,9 +1,9 @@
 /*  Proyecto: Agentes Inteligentes en un Laberinto
-    Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
+    Curso: Fundamentos de ProgramaciÃ³n Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
                  Elbert Leandro Moreno Castillo -
-                 Daniel Escobar Escobar -
+                 Daniel Escobar Escobar - 2437924
                  Jesus Giovanny Mora -
     Fecha: Mayo 2025 */
 
@@ -19,8 +19,8 @@ using namespace std;
 
 class Vista {
 private:
-    // Punteros const a los objetos del modelo (relación de agregación)
-    // Los punteros no pueden cambiar, pero los objetos sí pueden ser modificados
+    // Punteros const a los objetos del modelo (relaciÃ³n de agregaciÃ³n)
+    // Los punteros no pueden cambiar, pero los objetos sÃ­ pueden ser modificados
     Tablero* const tablero;
     Avatar* const avatar;
 
