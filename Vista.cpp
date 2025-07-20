@@ -1,9 +1,9 @@
 /*  Proyecto: Agentes Inteligentes en un Laberinto
-    Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
+    Curso: Fundamentos de ProgramaciÃ³n Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
                  Elbert Leandro Moreno Castillo -
-                 Daniel Escobar Escobar -
+                 Daniel Escobar Escobar - 2437924
                  Jesus Giovanny Mora -
     Fecha: Mayo 2025 */
 
@@ -16,7 +16,7 @@ using namespace std;
 
 
 Vista::Vista(Tablero* const ptrTablero, Avatar* const ptrAvatar) : tablero(ptrTablero), avatar(ptrAvatar) {
-    // Inicialización en lista de inicialización para punteros const
+    // InicializaciÃ³n en lista de inicializaciÃ³n para punteros const
 }
 
 
@@ -30,7 +30,7 @@ void Vista::mostrarTablero() const {
     cout << "Leyenda: [A]=Avatar, [S]=Salida, [1]=Camino, [0]=Precipicio" << endl;
     cout << "   ";
 
-    // Mostrar números de columna sUperior
+    // Mostrar nÃºmeros de columna sUperior
     for(int j = 0; j < tablero->obtenerTamanio(); j++) {
         cout << " " << j << " ";
     }
@@ -38,14 +38,14 @@ void Vista::mostrarTablero() const {
 
     // Mostrar cada fila del tablero
     for(int i = 0; i < tablero->obtenerTamanio(); i++) {
-        cout << i << "  "; // Número de fila
+        cout << i << "  "; // NÃºmero de fila
 
         for(int j = 0; j < tablero->obtenerTamanio(); j++) {
-            // Verificar si el avatar está en esta posición
+            // Verificar si el avatar estÃ¡ en esta posiciÃ³n
             if(avatar->obtenerFila() == i && avatar->obtenerColumna() == j) {
                 cout << "[A]"; // Mostrar avatar
             }
-            // Verificar si es la posición de salida
+            // Verificar si es la posiciÃ³n de salida
             else if(i == 9 && j == 9) {
                 cout << "[S]";
             }
@@ -60,7 +60,7 @@ void Vista::mostrarTablero() const {
         cout << "  " << i << endl;
     }
 
-    // Mostrar números de columna en la parte inferior
+    // Mostrar nÃºmeros de columna en la parte inferior
     cout << "   ";
     for(int j = 0; j < tablero->obtenerTamanio(); j++) {
         cout << " " << j << " ";
@@ -89,7 +89,7 @@ void Vista::mostrarMensajeBienvenida() const {
 
 void Vista::mostrarMensajeVictoria() const {
     cout << "\n************************************************" << endl;
-    cout << "           ¡¡¡ MISION COMPLETADA !!!" << endl;
+    cout << "           Â¡Â¡Â¡ MISION COMPLETADA !!!" << endl;
     cout << "************************************************" << endl;
     cout << "El soldado ha encontrado la salida del laberinto!" << endl;
     cout << "Movimientos totales: " << avatar->obtenerMovimientos() << endl;
