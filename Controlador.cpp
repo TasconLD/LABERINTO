@@ -1,9 +1,9 @@
 /*  Proyecto: Agentes Inteligentes en un Laberinto
-    Curso: Fundamentos de ProgramaciÛn Orientada a Objetos (FPOO)
+    Curso: Fundamentos de Programaci√≥n Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
                  Elbert Leandro Moreno Castillo -
-                 Daniel Escobar Escobar -
+                 Daniel Escobar Escobar - 2437924
                  Jesus Giovanny Mora -
     Fecha: Mayo 2025 */
 
@@ -81,7 +81,7 @@ void Controlador::procesarMovimiento() {
     int intentos = 0;
     const int MAX_INTENTOS = 50; // Evita bucles infinitos
 
-    // Intentar realizar un movimiento v·lido
+    // Intentar realizar un movimiento v√°lido
     while(!movimientoExitoso && intentos < MAX_INTENTOS) {
         movimientoExitoso = intentarMovimiento();
         intentos++;
