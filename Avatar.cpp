@@ -1,9 +1,9 @@
 /*  Proyecto: Agentes Inteligentes en un Laberinto
-    Curso: Fundamentos de Programaci髇 Orientada a Objetos (FPOO)
+    Curso: Fundamentos de Programaci贸n Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
                  Elbert Leandro Moreno Castillo -
-                 Daniel Escobar Escobar -
+                 Daniel Escobar Escobar - 2437924
                  Jesus Giovanny Mora -
     Fecha: Mayo 2025 */
 
@@ -54,10 +54,10 @@ void Avatar::generarMovimientoAleatorio(int& nuevaFila, int& nuevaColumna) const
     // Array de direcciones posibles: arriba, abajo, izquierda, derecha
     int direcciones[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-    // Seleccionar una direcci髇 aleatoria
+    // Seleccionar una direcci贸n aleatoria
     int direccionElegida = rand() % 4;
 
-    // Calcular nueva posici髇 basada en la direcci髇 elegida
+    // Calcular nueva posici贸n basada en la direcci贸n elegida
     nuevaFila = filaActual + direcciones[direccionElegida][0];
     nuevaColumna = columnaActual + direcciones[direccionElegida][1];
 }
