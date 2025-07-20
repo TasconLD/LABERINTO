@@ -8,31 +8,11 @@
     Fecha: Mayo 2025 */
 
 
-#include <iostream>
 #include "Controlador.h"
 
-using namespace std;
-
-
 int main() {
-    try {
-        // controlador del juego MVC
-        Controlador controladorJuego;
-
-
-        controladorJuego.ejecutarJuego();
-
-    }
-    catch(const exception& e) {
-        // Manejo básico de errores con const
-        cout << "Error durante la ejecución del juego: " << e.what() << endl;
-        return 1;
-    }
-    catch(...) {
-        // Manejo de errores inesperados
-        cout << "Error inesperado durante la ejecución del juego." << endl;
-        return 1;
-    }
+    Controlador juego;
+    juego.ejecutarJuego();
 
     return 0;
 }

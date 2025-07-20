@@ -7,48 +7,25 @@
                  Jesus Giovanny Mora -
     Fecha: Mayo 2025 */
 
-
 #include "Avatar.h"
-#include <cstdlib>
 
-using namespace std;
+Avatar::Avatar(int filaInicial, int columnaInicial)
+    : filaActual(filaInicial), columnaActual(columnaInicial), movimientos(0) {}
 
+Avatar::~Avatar() {}
 
-Avatar::Avatar(int filaInicial, int columnaInicial) {
-    filaActual = filaInicial;
-    columnaActual = columnaInicial;
-    movimientos = 0;
-}
-
-
-Avatar::~Avatar() {
-
-}
-
-int Avatar::obtenerFila() const {
-    return filaActual;
-}
-
-
-int Avatar::obtenerColumna() const {
-    return columnaActual;
-}
-
-int Avatar::obtenerMovimientos() const {
-    return movimientos;
-}
-
+int Avatar::obtenerFila() const { return filaActual; }
+int Avatar::obtenerColumna() const { return columnaActual; }
+int Avatar::obtenerMovimientos() const { return movimientos; }
 
 void Avatar::establecerPosicion(int nuevaFila, int nuevaColumna) {
     filaActual = nuevaFila;
     columnaActual = nuevaColumna;
 }
 
-
 void Avatar::incrementarMovimientos() {
     movimientos++;
 }
-
 
 void Avatar::generarMovimientoAleatorio(int& nuevaFila, int& nuevaColumna) const {
     // Array de direcciones posibles: arriba, abajo, izquierda, derecha
@@ -67,7 +44,6 @@ void Avatar::mover(int nuevaFila, int nuevaColumna) {
     columnaActual = nuevaColumna;
     incrementarMovimientos();
 }
-
 
 void Avatar::reiniciar(int filaInicial, int columnaInicial) {
     filaActual = filaInicial;

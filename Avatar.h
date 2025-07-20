@@ -13,37 +13,26 @@
 
 using namespace std;
 
-
 class Avatar {
-public:
+protected:
     int filaActual;
     int columnaActual;
     int movimientos;
 
+public:
     Avatar(int filaInicial, int columnaInicial);
+    virtual ~Avatar();
 
-    // Destructor
-    ~Avatar();
-
-    // Métodos para obtener la posición actual
     int obtenerFila() const;
     int obtenerColumna() const;
     int obtenerMovimientos() const;
 
-    // Métodos para establecer nueva posición
     void establecerPosicion(int nuevaFila, int nuevaColumna);
-
-    
     void incrementarMovimientos();
-
-
-    void generarMovimientoAleatorio(int& nuevaFila, int& nuevaColumna) const;
-
-
-    void mover(int nuevaFila, int nuevaColumna);
-
-
     void reiniciar(int filaInicial, int columnaInicial);
+
+    // Método virtual puro
+    virtual void generarMovimiento(int& nuevaFila, int& nuevaColumna) const = 0;
 };
 
-#endif // AVATAR_H
+#endif

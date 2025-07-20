@@ -7,16 +7,15 @@
                  Jesus Giovanny Mora -
     Fecha: Mayo 2025 */
 
-
 #ifndef CONTROLADOR_H
 #define CONTROLADOR_H
 
 #include "Tablero.h"
 #include "Avatar.h"
+#include "AvatarAleatorio.h"
 #include "Vista.h"
 
 using namespace std;
-
 
 class Controlador {
 private:
@@ -25,25 +24,18 @@ private:
     Avatar* const avatar;      // Puntero const al avatar del juego
     Vista* const vista;        // Puntero const a la vista del juego
 
-    bool juegoTerminado; //
 public:
-
     Controlador();
-
     ~Controlador();
 
-
     void ejecutarJuego();
-
-
     void inicializarJuego();
     void procesarMovimiento();
     void verificarEstadoJuego();
     void finalizarJuego();
-
-
     bool intentarMovimiento();
     void mostrarProgreso();
 };
 
-#endif // CONTROLADOR_H
+#endif
+
