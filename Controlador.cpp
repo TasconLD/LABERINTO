@@ -1,5 +1,5 @@
 /*  Proyecto: Agentes Inteligentes en un Laberinto
-    Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
+    Curso: Fundamentos de Programaciï¿½n Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
                  Elbert Leandro Moreno Castillo -
@@ -9,6 +9,8 @@
 
 
 #include "Controlador.h"
+#include "AvatarInteligente.h"
+
 #include <iostream>
 
 using namespace std;
@@ -19,17 +21,13 @@ Controlador::Controlador() :
     vista(nullptr),
     juegoTerminado(false) {
 
-
     int filaInicial, columnaInicial;
     tablero->obtenerPosicionInicialAleatoria(filaInicial, columnaInicial);
 
-    //const_cast para asignar
-    const_cast<Avatar*&>(avatar) = new Avatar(filaInicial, columnaInicial);
+    avatar = new AvatarInteligente(filaInicial, columnaInicial);
+    vista = new Vista(tablero, avatar);
 
-    // Crear la vista pasando referencias al modelo
-    const_cast<Vista*&>(vista) = new Vista(tablero, avatar);
 }
-
 
 Controlador::~Controlador() {
     delete tablero;
@@ -38,111 +36,69 @@ Controlador::~Controlador() {
 }
 
 void Controlador::ejecutarJuego() {
-
     inicializarJuego();
 
-    // Bucle
     while(!juegoTerminado) {
-
         mostrarProgreso();
-
-
         procesarMovimiento();
-
-
         verificarEstadoJuego();
-
-
         vista->pausar();
     }
 
     finalizarJuego();
 }
 
-
 void Controlador::inicializarJuego() {
     vista->limpiarPantalla();
-    vista->mostrarMensajeBienvenida();
-    vista->mostrarInstrucciones();
-
-
-    cin.get();
-
-    cout << "\nIniciando simulacion..." << endl;
-    cout << "Posicion inicial del agente: [" << avatar->obtenerFila()
-         << "][" << avatar->obtenerColumna() << "]" << endl;
-    cout << "Presiona Enter para comenzar...";
+    cout << "Bienvenido al juego del laberinto!" << endl;
+    cout << "Presiona Enter para comenzar..." << endl;
     cin.get();
 }
-
 
 void Controlador::procesarMovimiento() {
     bool movimientoExitoso = false;
     int intentos = 0;
-    const int MAX_INTENTOS = 50; // Evita bucles infinitos
+    const int MAX_INTENTOS = 50;
 
-    // Intentar realizar un movimiento válido
     while(!movimientoExitoso && intentos < MAX_INTENTOS) {
         movimientoExitoso = intentarMovimiento();
         intentos++;
     }
 
-
     if(!movimientoExitoso) {
-        cout << "\nEl agente esta atrapado! Generando un nuevo laberinto..." << endl;
+        cout << "Agente atrapado! Reiniciando laberinto..." << endl;
         tablero->generarLaberintoAleatorio();
-
 
         int nuevaFila, nuevaColumna;
         tablero->obtenerPosicionInicialAleatoria(nuevaFila, nuevaColumna);
         avatar->reiniciar(nuevaFila, nuevaColumna);
-
-        vista->pausar();
     }
 }
 
-
 void Controlador::verificarEstadoJuego() {
-    if(tablero->esLaSalida(avatar->obtenerFila(), avatar->obtenerColumna())) {
+    if (tablero->esLaSalida(avatar->obtenerFila(), avatar->obtenerColumna())) {
         juegoTerminado = true;
     }
 }
 
-
 void Controlador::finalizarJuego() {
-
     vista->mostrarEstadoCompleto();
-
-
-    vista->mostrarMensajeVictoria();
-
-    cout << "\nPresiona Enter para salir...";
-    cin.get();
+    cout << "Â¡Felicidades, llegaste a la salida!" << endl;
+    cout << "Movimientos realizados: " << avatar->obtenerMovimientos() << endl;
 }
-
 
 bool Controlador::intentarMovimiento() {
     int nuevaFila, nuevaColumna;
+    avatar->generarMovimiento(nuevaFila, nuevaColumna);
 
-
-    avatar->generarMovimientoAleatorio(nuevaFila, nuevaColumna);
-
-
-    if(tablero->esPosicionValida(nuevaFila, nuevaColumna)) {
-
-        avatar->mover(nuevaFila, nuevaColumna);
+    if (tablero->esPosicionValida(nuevaFila, nuevaColumna)) {
+        avatar->establecerPosicion(nuevaFila, nuevaColumna);
+        avatar->incrementarMovimientos();
         return true;
     }
-
     return false;
 }
 
-
 void Controlador::mostrarProgreso() {
     vista->mostrarEstadoCompleto();
-
-
-    if(avatar->obtenerMovimientos() % 10 == 0 && avatar->obtenerMovimientos() > 0) {
-        cout << "\n>>> El agente continua buscando la salida..." << endl;
-    }
 }

@@ -1,5 +1,5 @@
 /*  Proyecto: Agentes Inteligentes en un Laberinto
-    Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
+    Curso: Fundamentos de Programaciï¿½n Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
                  Elbert Leandro Moreno Castillo -
@@ -13,37 +13,29 @@
 
 #include "Tablero.h"
 #include "Avatar.h"
+#include "AvatarAleatorio.h"
 #include "Vista.h"
 
 using namespace std;
 
-
 class Controlador {
 private:
-    // Composición: el controlador contiene estos objetos
-    Tablero* const tablero;    // Puntero const al tablero del juego
-    Avatar* const avatar;      // Puntero const al avatar del juego
-    Vista* const vista;        // Puntero const a la vista del juego
+    Tablero* tablero;
+    Avatar* avatar;
+    Vista* vista;
+    bool juegoTerminado;
 
-    bool juegoTerminado; //
 public:
-
     Controlador();
-
     ~Controlador();
 
-
     void ejecutarJuego();
-
-
     void inicializarJuego();
     void procesarMovimiento();
     void verificarEstadoJuego();
     void finalizarJuego();
-
-
     bool intentarMovimiento();
     void mostrarProgreso();
 };
 
-#endif // CONTROLADOR_H
+#endif
