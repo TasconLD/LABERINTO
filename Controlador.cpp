@@ -22,11 +22,12 @@ Controlador::Controlador() :
     juegoTerminado(false) {
 
     int filaInicial, columnaInicial;
-    tablero->obtenerPosicionInicialAleatoria(filaInicial, columnaInicial);
+    do {
+        tablero->obtenerPosicionInicialAleatoria(filaInicial, columnaInicial);
+    } while (tablero->obtenerValor(filaInicial, columnaInicial) == 0); // Evita precipicio
 
     avatar = new AvatarInteligente(filaInicial, columnaInicial);
     vista = new Vista(tablero, avatar);
-
 }
 
 Controlador::~Controlador() {
@@ -70,7 +71,10 @@ void Controlador::procesarMovimiento() {
         tablero->generarLaberintoAleatorio();
 
         int nuevaFila, nuevaColumna;
-        tablero->obtenerPosicionInicialAleatoria(nuevaFila, nuevaColumna);
+        do {
+            tablero->obtenerPosicionInicialAleatoria(nuevaFila, nuevaColumna);
+        } while (tablero->obtenerValor(nuevaFila, nuevaColumna) == 0); // Evita precipicio
+
         avatar->reiniciar(nuevaFila, nuevaColumna);
     }
 }
