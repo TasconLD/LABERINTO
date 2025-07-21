@@ -2,7 +2,7 @@
     Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
     Universidad del Valle
     Estudiantes: Laura Dayana Tascon Velasco - 2438545
-                 Elbert Leandro Moreno Castillo -
+                 Elbert Leandro Moreno Castillo - 2436884
                  Daniel Escobar Escobar - 2437924
                  Jesus Giovanny Mora -
     Fecha: Mayo 2025 */
